@@ -11,6 +11,8 @@
     align-items: center;
     justify-content: center;
     background-color: #000000a4;
+    z-index: 1000;
+
 
     &__header{
         display: flex;
