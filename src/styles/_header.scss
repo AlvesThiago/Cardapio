@@ -1,0 +1,50 @@
+@use 'reset';
+@use 'var';
+
+.header{
+    display: flex;
+    align-items: center;
+    height:50vh;
+    background-image: url(../img/header.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    &::before{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        content: '';
+        opacity: .85;
+    }
+
+    &__content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        text-align: center;
+
+        a{
+            img{
+                max-width: 200px;
+                width: 100%;
+                margin: 0 auto;
+                border-radius: 50%;
+            }
+        }
+
+        h1{
+            font-size: 46px;
+            color: #fff;
+        }
+
+        &__horario{
+            color: #fff;
+        }
+    
+    }
+}

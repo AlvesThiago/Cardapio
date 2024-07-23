@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/main.css">
+
+    <title>Parada Burguer</title>
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__content">
+                <a href="#">
+                    <img src="src/img/logo.jpg" alt="logo">
+                </a>
+                <h1>Parada Burguer</h1>
+                <div class="header__content__horario">
+                    <span>Seg à Dom - 18h00 às 00h00</span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="shows">
+        <div class="container">
+            <nav class="shows__tabs">
+                <button class="btn btn--is-active" data-tab-button="promocoes">Promoções</button>
+                <button class="btn" data-tab-button="combos">Combos</button>
+                <button class="btn" data-tab-button="xburguer">Xburguer</button>
+                <button class="btn" data-tab-button="dogs">Dogs</button>
+                <button class="btn" data-tab-button="pasteis">Pasteis</button>
+                <button class="btn" data-tab-button="bebidas">Bebidas</button>
+            </nav>
+
+            <ul data-tab-id="promocoes" class="shows__list shows__list--is-active">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- combos -->
+            <ul data-tab-id="combos" class="shows__list">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- xburguer -->
+            <ul data-tab-id="xburguer" class="shows__list">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- dogs -->
+            <ul data-tab-id="dogs" class="shows__list">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- pasteis -->
+            <ul data-tab-id="pasteis" class="shows__list">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/logo.jpg" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+
+            <!-- bebidas -->
+            <ul data-tab-id="bebidas" class="shows__list">
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text">
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+                <li class="shows__list__item">
+                    <div class="shows__list__item__img">
+                        <img src="dist/img/hamb-1.png" alt="">
+                    </div>
+                    <div class="shows__list__item__text"> 
+                        <h2>Hamburguer Duplo</h2>
+                        <p>
+                            Lorem ipsum dolor sit,
+                            amet consectetur adipisicing eli oluptas nisi eos cum.
+                        </p>
+                        <div class="shows__list__item__buy">
+                            <span>R$ 20,00</span>
+                            <a href="#"><i class="bi bi-cart"></i></a>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="modal">
+        <div class="modal__container">
+            <header class="modal__header">
+                <button><i class="bi bi-x-lg"></i></button>
+            </header>
+
+            <h2>Meu carrinho</h2>
+
+            <ul class="modal__list">
+                <li class="modal__list__item">
+                    <div class="modal__list__item__itens">
+                        <div>
+                            <img src="dist/img/hamb-1.png" alt="">
+                        </div>
+                        <div>
+                            <p>Hamburguer</p>
+                            <p>Qtd: 2</p>
+                            <p>R$ 40,00</p>
+                        </div>
+                    </div>
+
+                    <div class="modal__list__delete">
+                        <button><i class="bi bi-trash"></i></button>
+                    </div>
+                </li>
+                <li class="modal__list__item">
+                    <div class="modal__list__item__itens">
+                        <div>
+                            <img src="dist/img/hamb-1.png" alt="">
+                        </div>
+                        <div>
+                            <p>Hamburguer</p>
+                            <p>Qtd: 2</p>
+                            <p>R$ 40,00</p>
+                        </div>
+                    </div>
+
+                    <div class="modal__list__delete">
+                        <button><i class="bi bi-trash"></i></button>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="modal__dados">
+                <p>Total: R$ 80,00</p>
+                <h3>Dados para a entrega:</h3>
+
+                <form action="" class="modal__dados__form">
+                    <input class="modal__dados__form__input" type="text" placeholder="Seu nome" required>
+                    <input class="modal__dados__form__input" type="text" placeholder="Endereço" required>
+                    <input class="modal__dados__form__input" type="text" placeholder="CEP" required>
+                </form>
+
+                <div class="modal__dados__submit">
+                    <button type="submit">Finalizar pedido</button>
+                </div>
+            </div>
+        </div>
+
+
+
+    </section>
+
+
+
+
+    <script src="dist/js/main.js"></script>
+</body>
+</html>
