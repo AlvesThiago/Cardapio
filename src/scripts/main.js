@@ -6,10 +6,13 @@ const menu = document.getElementById('menu');
 const modalContainer = document.querySelector('.modal__list');
 const cartTotal = document.getElementById('cart-total');
 const cartCounter = document.getElementById('cart-counter');
+const nameInput = document.getElementById('name-input');
+const addressInput = document.getElementById('address');
+const cepInput = document.getElementById('cep');
+const checkoutBtn = document.getElementById('checkoutBtn');
 
 
 let cart = [];
-
 
 document.addEventListener('DOMContentLoaded', function(){
     const buttons = document.querySelectorAll('[data-tab-button]');
@@ -57,7 +60,6 @@ document.addEventListener('DOMContentLoaded', function(){
         };
     });
 
-
     // Remover item do carrinho
     modalContainer.addEventListener('click', function(event) {
         if (event.target.closest('.remove-from-cart-btn')) {
@@ -67,9 +69,84 @@ document.addEventListener('DOMContentLoaded', function(){
         }
     });
 
+    //botão para finalizar o pedido
+    checkoutBtn.addEventListener('click', function(){
+        const isOpen = checkOpen();
+
+        if(!isOpen){ 
+            Toastify({
+                text: "Ops, Estamos fechado no momento!",
+                duration: 3000,
+                close: true,
+                gravity: "top", // `top` or `bottom`
+                position: "center", // `left`, `center` or `right`
+                stopOnFocus: true, // Prevents dismissing of toast on hover
+                style: {
+                  background: "#ef4444",
+                },
+            }).showToast(); 
+            return;
+        }
+
+        if(cart.length === 0) return;
+
+        if(addressInput.value === ""){
+            addressInput.classList.add("modal__dados__form__input--invalido");
+        } else{
+            addressInput.classList.remove("modal__dados__form__input--invalido");
+        }
+
+        if(cepInput.value === ""){
+            cepInput.classList.add("modal__dados__form__input--invalido");
+        } else{
+            cepInput.classList.remove("modal__dados__form__input--invalido");
+        }
+
+        // Calcular o total do valor de todos os produtos escolhidos
+        const total = cart.reduce((acc, item) => {
+        return acc + (item.price * item.quantity);
+        }, 0);
+
+        //Enviar para API do Whats
+
+        const cartItems = cart.map((item) => {
+
+        let precoTotal = item.price * item.quantity;
+
+        return(
+            `${item.name}\n` +
+            `Quantidade: (${item.quantity})\n` +
+            `Preço: R$${precoTotal.toFixed(2)}\n\n`
+        );
+
+        }) .join("");
+
+        const totalMessage = `*Total: R$${total.toFixed(2)}*\n\n`;
+
+        const nameInputValue = `Nome: ${nameInput.value} \n`;
+        
+        const endereco = `Endereço: ${addressInput.value}\n`;
+        const cep = `CEP: ${cepInput.value}`;
+
+        const message = encodeURIComponent(`${cartItems}${totalMessage}${nameInputValue}${endereco}${cep}`);
+
+        const phone = "5511961916701";
+
+        window.open(`https://wa.me/${phone}?text=${message}`);
+
+        cart = [];
+        updateCartModal();
+
+    });
+
 });
 
 
+
+
+
+
+// Logica para troca de abas
 function esconderTodasAbas(){
     const tabContainer = document.querySelectorAll('[data-tab-id]');
 
@@ -86,7 +163,7 @@ function removerButtonAtivo(){
     }
 };
 
-
+//logica para adicionar um produto
 function addToCart(name, price){
     const existingItem = cart.find(item => item.name === name)
 
@@ -105,7 +182,7 @@ function addToCart(name, price){
         duration: 3000,
         close: true,
         gravity: "top", // `top` or `bottom`
-        position: "right", // `left`, `center` or `right`
+        position: "center", // `left`, `center` or `right`
         stopOnFocus: true, // Prevents dismissing of toast on hover
         style: {
           background: "#65B741",
@@ -116,6 +193,7 @@ function addToCart(name, price){
 
 }
 
+//atualizando o carrinho quando adiciona um produto
 function updateCartModal(){
     modalContainer.innerHTML = "";
 
@@ -157,7 +235,7 @@ function updateCartModal(){
     cartCounter.innerHTML = cart.length;
 }
 
-
+// logica para remover um item do carrinho
 function removeItemCart(name) {
     const index = cart.findIndex(item => item.name === name);
 
@@ -175,4 +253,21 @@ function removeItemCart(name) {
     updateCartModal();
 }
 
+// verificando se o restaurante está aberto
+function checkOpen(){
+    const data = new Date();
+    const hora = data.getHours();
 
+    return hora >= 18 && hora <= 23;
+}
+
+const spanItem = document.getElementById('date-span');
+const isOpen = checkOpen();
+
+if(isOpen){
+    spanItem.classList.add('header__content__horario--is-open');
+} else{
+    spanItem.classList.remove('header__content__horario--is-open');
+}
+
+AOS.init();

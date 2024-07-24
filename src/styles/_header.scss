@@ -42,8 +42,23 @@
             color: #fff;
         }
 
+        address{
+            color: #fff;
+            margin-bottom: 16px;
+        }
+
         &__horario{
             color: #fff;
+            max-width: 300px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 8px;
+            border-radius: 8px;
+            background-color: #f00606;
+
+            &--is-open{
+                background-color: rgb(5, 189, 5);
+            }
         }
     
     }

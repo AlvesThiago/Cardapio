@@ -5,6 +5,41 @@
 @use 'modal';
 @use 'cart';
 
+@media(max-width: var.$note){
+    .container{
+        max-width: 90%;
+    }
+}
+
+@media (max-width: var.$tablet){
+    .container{
+        max-width: 90%;
+    }
+
+    .header{
+        &__content{
+            a{
+                img{
+                    max-width: 200px;
+
+                }
+            }
+
+            h1{
+                font-size: 35px;
+            }
+        }
+    }
+
+
+
+    .shows{
+        &__list{
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+}
+
 @media (max-width: var.$mobile){
     .container{
         max-width: 90%;
@@ -78,5 +113,13 @@
     .cart{
         top: 20px;
         bottom: auto;
+        padding: 12px;
+
+        &__btn{
+
+            button{
+                font-size: 18px;
+            }
+        }
     }
 }
