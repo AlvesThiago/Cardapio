@@ -167,6 +167,7 @@ function removeItemCart(name) {
         } else {
             cart.splice(index, 1);
         }
+        
         updateCartModal();
     }
 }

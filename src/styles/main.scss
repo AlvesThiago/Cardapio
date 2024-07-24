@@ -4,3 +4,79 @@
 @use 'shows';
 @use 'modal';
 @use 'cart';
+
+@media (max-width: var.$mobile){
+    .container{
+        max-width: 90%;
+    }
+
+    .header{
+        &__content{
+            a{
+                img{
+                    max-width: 100px;
+
+                }
+            }
+
+            h1{
+                font-size: 30px;
+            }
+        }
+    }
+
+    .shows{
+        &__tabs{
+            white-space: nowrap;
+            padding-left: 20px;
+            overflow-x: scroll;
+            scroll-snap-type:  none;
+            -webkit-overflow-scrolling: touch;
+
+                &::-webkit-scrollbar {
+                    display: none;
+                }
+
+            .btn{
+                font-size: 14px;
+            }
+        }
+
+        &__list{
+            grid-template-columns: 1fr;
+
+            &__item{
+                &__text{
+                    h2{
+                        font-size: 16px;
+                    }
+
+                    p{
+                        font-size: 12px;
+                    }
+                }
+
+                &__buy{
+                    button{
+                        font-size: 18px;
+                    }
+
+                    span{
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+
+    .modal{
+        &__container{
+            max-width: 350px;
+        }
+    }
+
+    .cart{
+        top: 20px;
+        bottom: auto;
+    }
+}
