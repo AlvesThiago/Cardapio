@@ -140,6 +140,8 @@ document.addEventListener('DOMContentLoaded', function(){
 
     });
 
+    checkOpen();
+
 });
 
 
@@ -266,17 +268,17 @@ function removeItemCart(name) {
 function checkOpen(){
     const data = new Date();
     const hora = data.getHours();
+    const spanItem = document.getElementById('date-span');
+    
 
-    return hora >= 18 && hora <= 23;
+    if(hora >= 18 && hora < 23){
+        spanItem.classList.add('header__content__horario--is-open');
+        
+    } else {
+        spanItem.classList.remove('header__content__horario--is-open');
+        
+    }
 }
 
-const spanItem = document.getElementById('date-span');
-const isOpen = checkOpen();
-
-if(isOpen){
-    spanItem.classList.add('header__content__horario--is-open');
-} else{
-    spanItem.classList.remove('header__content__horario--is-open');
-}
 
 AOS.init();
