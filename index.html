@@ -295,12 +295,53 @@
 
             <div class="modal__dados">
                 <p>Total: <span id="cart-total"></span></p>
-                <h3>Dados para a entrega:</h3>
-
+                
                 <form action="" class="modal__dados__form">
-                    <input class="modal__dados__form__input" type="text" placeholder="Seu nome" required id="name-input">
-                    <input class="modal__dados__form__input" type="text" placeholder="Endereço" required id="address">
-                    <input class="modal__dados__form__input" type="text" placeholder="CEP" required id="cep">
+                    <div class="modal__dados__form__opcoes">
+                        <label>
+                            <input type="radio" name="delivery-option" value="delivery" id="delivery-option">
+                            Delivery
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery-option" value="pickup" id="pickup-option">
+                            Retirar no Local
+                        </label>
+                    </div>
+
+                    <div class="modal__dados__form__entrega" id="tabEntrega">
+                        <h3>Dados para a entrega:</h3>
+                        <input class="modal__dados__form__entrega__input" type="text" placeholder="Seu nome" required id="name-input">
+                        <input class="modal__dados__form__entrega__input" type="text" placeholder="Endereço" required id="address">
+                        <input class="modal__dados__form__entrega__input" type="text" placeholder="CEP" required id="cep">
+                    </div>
+
+                    <h3>Formas de pagamento:</h3>
+                    <div class="modal__dados__form__pagamento">                       
+                        <label>
+                            <input type="radio" name="payment-option" value="dinheiro" id="payment-cash">
+                            Dinheiro
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-option" value="cartao" id="payment-card">
+                            Débito/Crédito
+                        </label>
+                        <label>
+                            <input type="radio" name="payment-option" value="pix" id="payment-pix">
+                            Pix
+                        </label>
+                    </div>
+
+                    <div class="modal__dados__form__troco" id="troco-container">
+                        <div>
+                            <span>Precisa de troco?</span>               
+                        </div>
+                        <label>
+                            <input type="checkbox" id="troco-checkbox">
+                            Sim
+                        </label>    
+
+                        <input class="modal__dados__form__troco__input" type="text" placeholder="Valor para troco" id="troco-input">
+                    </div>
                 </form>
 
                 <div class="modal__dados__submit">

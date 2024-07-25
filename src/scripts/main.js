@@ -11,6 +11,18 @@ const addressInput = document.getElementById('address');
 const cepInput = document.getElementById('cep');
 const checkoutBtn = document.getElementById('checkoutBtn');
 
+// Manipular opções de entrega
+const deliveryOption = document.getElementById('delivery-option');
+const pickupOption = document.getElementById('pickup-option');
+
+// Manipular opções de pagamento
+const paymentCash = document.getElementById('payment-cash');
+const trocoCheckbox = document.getElementById('troco-checkbox');
+const trocoInput = document.getElementById('troco-input');
+const paymentCard = document.getElementById('payment-card');
+const paymentPix = document.getElementById('payment-pix');
+
+
 
 let cart = [];
 
@@ -83,7 +95,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 position: "center", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
-                  background: "#ef4444",
+                background: "#ef4444",
                 },
             }).showToast(); 
             return;
@@ -91,16 +103,70 @@ document.addEventListener('DOMContentLoaded', function(){
 
         if(cart.length === 0) return;
 
-        if(addressInput.value === ""){
-            addressInput.classList.add("modal__dados__form__input--invalido");
-        } else{
-            addressInput.classList.remove("modal__dados__form__input--invalido");
-        }
 
-        if(cepInput.value === ""){
-            cepInput.classList.add("modal__dados__form__input--invalido");
-        } else{
-            cepInput.classList.remove("modal__dados__form__input--invalido");
+        const deliveryOption = document.getElementById('delivery-option');
+        const pickupOption = document.getElementById('pickup-option');
+        const paymentCash = document.getElementById('payment-cash');
+        const paymentCard = document.getElementById('payment-card');
+        const paymentPix = document.getElementById('payment-pix');
+        const trocoCheckbox = document.getElementById('troco-checkbox');
+        const trocoInput = document.getElementById('troco-input');
+    
+        let error = false;
+    
+        // Validação de campos obrigatórios para entrega
+        if (deliveryOption.checked) {
+            if (addressInput.value === "") {
+                addressInput.classList.add("modal__dados__form__entrega__input--invalido");
+                error = true;
+            } else {
+                addressInput.classList.remove("modal__dados__form__entrega__input--invalido");
+            }
+    
+            if (cepInput.value === "") {
+                cepInput.classList.add("modal__dados__form__entrega__input--invalido");
+                error = true;
+            } else {
+                cepInput.classList.remove("modal__dados__form__entrega__input--invalido");
+            }
+        }
+    
+        // Validação de formas de pagamento para retirada no local e delivery
+    let paymentMethod = '';
+    if (pickupOption.checked || deliveryOption.checked) {
+        if (!paymentCash.checked && !paymentCard.checked && !paymentPix.checked) {
+            Toastify({
+                text: "Por favor, selecione uma forma de pagamento.",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                  background: "#ef4444",
+                },
+            }).showToast();
+            error = true;
+        } else {
+            if (paymentCash.checked) paymentMethod = 'Dinheiro';
+            if (paymentCard.checked) paymentMethod = 'Débito/Crédito';
+            if (paymentPix.checked) paymentMethod = 'Pix';
+        }
+    }
+
+        if (error) {
+            Toastify({
+                text: "Por favor, preencha todos os campos obrigatórios.",
+                duration: 3000,
+                close: true,
+                gravity: "top",
+                position: "center",
+                stopOnFocus: true,
+                style: {
+                background: "#ef4444",
+                },
+            }).showToast();
+            return;
         }
 
         // Calcular o total do valor de todos os produtos escolhidos
@@ -125,19 +191,71 @@ document.addEventListener('DOMContentLoaded', function(){
         const totalMessage = `*Total: R$${total.toFixed(2)}*\n\n`;
 
         const nameInputValue = `Nome: ${nameInput.value} \n`;
-        
-        const endereco = `Endereço: ${addressInput.value}\n`;
-        const cep = `CEP: ${cepInput.value}`;
+        const endereco = deliveryOption.checked ? `Endereço: ${addressInput.value}\n` : '';
+        const cep = deliveryOption.checked ? `CEP: ${cepInput.value}\n\n` : '';
 
-        const message = encodeURIComponent(`${cartItems}${totalMessage}${nameInputValue}${endereco}${cep}`);
+        let trocoMessage = '';
+        if (paymentCash.checked && trocoCheckbox.checked) {
+            const trocoValue = trocoInput.value.trim();
+            if (trocoValue) {
+                trocoMessage = `Troco para: R$${parseFloat(trocoValue).toFixed(2)}\n\n`;
+            }
+        }
 
+        const paymentMessage = paymentMethod ? `Forma de pagamento: ${paymentMethod}\n` : '';
+
+        const message = encodeURIComponent(`${cartItems}${totalMessage}${nameInputValue}${endereco}${cep}${trocoMessage}${paymentMessage}`);
+    
         const phone = "5511961916701";
-
         window.open(`https://wa.me/${phone}?text=${message}`);
-
+    
         cart = [];
         updateCartModal();
 
+    });
+
+    // Se o cliente escolher delivery
+    deliveryOption.addEventListener('change', function(){
+        const tabEntrega = document.getElementById('tabEntrega');
+
+        if(deliveryOption.checked){
+            addressInput.required  = true;
+            cepInput.required  = true;
+            tabEntrega.classList.add('modal__dados__form__entrega--is-active');
+        } else{
+            tabEntrega.classList.remove('modal__dados__form__entrega--is-active');
+        }
+    });
+
+    // Se o cliente escolher retirar no local
+    pickupOption.addEventListener('change', function(){
+        const tabEntrega = document.getElementById('tabEntrega');
+
+        if(pickupOption.checked){
+            addressInput.required  = false;
+            cepInput.required  = false;
+            tabEntrega.classList.remove('modal__dados__form__entrega--is-active');
+        }
+    });
+
+    // Se o cliente escolher pagar no dinheiro
+    paymentCash.addEventListener('change', function(){
+        const tabTroco = document.getElementById('troco-container');
+
+        if(paymentCash.checked){
+            tabTroco.classList.add('modal__dados__form__troco--is-active');
+        } 
+    });
+
+    // Se o cliente precisa de troco
+    trocoCheckbox .addEventListener('change', function(){
+        const inputTroco = document.getElementById('troco-input');
+        
+        if(trocoCheckbox.checked){
+            inputTroco.classList.add('modal__dados__form__troco__input--is-active');
+        }else{
+            inputTroco.classList.remove('modal__dados__form__troco__input--is-active');
+        }
     });
 
     checkOpen();
@@ -270,13 +388,13 @@ function checkOpen(){
     const hora = data.getHours();
     const spanItem = document.getElementById('date-span');
     
-
     if(hora >= 18 && hora < 23){
         spanItem.classList.add('header__content__horario--is-open');
+        return true;
         
     } else {
         spanItem.classList.remove('header__content__horario--is-open');
-        
+        return false;
     }
 }
 
