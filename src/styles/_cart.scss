@@ -10,6 +10,12 @@
     background-color: #EA580C;
     border-radius: 12px;
     color: #fff;
+    transition: all ease-in .2s;
+
+    &:hover{
+        transform: scale(1.1);
+        background-color: darken(#EA580C, 15%);
+    }
     
     &__btn{
         display: flex;
