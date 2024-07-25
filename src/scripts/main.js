@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', function(){
         if(parentButton){
             const name = parentButton.getAttribute("data-name");
             const price = parseFloat(parentButton.getAttribute("data-price"));
+            const imageUrl = parentButton.getAttribute("data-image-url");
 
-            addToCart(name, price);
+            addToCart(name, price, imageUrl);
         };
     });
 
@@ -164,7 +165,7 @@ function removerButtonAtivo(){
 };
 
 //logica para adicionar um produto
-function addToCart(name, price){
+function addToCart(name, price, imageUrl){
     const existingItem = cart.find(item => item.name === name)
 
     if (existingItem) {
@@ -173,6 +174,7 @@ function addToCart(name, price){
         cart.push({
             name,
             price,
+            imageUrl,
             quantity: 1,
         })
     }
@@ -190,8 +192,11 @@ function addToCart(name, price){
     }).showToast();  
 
     updateCartModal();
-
 }
+
+
+
+
 
 //atualizando o carrinho quando adiciona um produto
 function updateCartModal(){
@@ -206,7 +211,7 @@ function updateCartModal(){
             <li class="modal__list__item">
                 <div class="modal__list__item__itens">
                     <div>
-                        <img src="dist/img/hamb-1.png" alt="">
+                        <img src="${item.imageUrl}" alt="${item.name}">
                     </div>
                     <div>
                         <p>${item.name}</p>
@@ -234,6 +239,10 @@ function updateCartModal(){
 
     cartCounter.innerHTML = cart.length;
 }
+
+
+
+
 
 // logica para remover um item do carrinho
 function removeItemCart(name) {
